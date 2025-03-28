@@ -1,4 +1,6 @@
-/* Global Styles */
+/* =========================
+   Global Styles
+========================= */
 * {
     margin: 0;
     padding: 0;
@@ -58,7 +60,9 @@ body {
     /* Use an actual "X" icon */
 }
 
-/* Navigation */
+/* =========================
+   Navigation Styles
+========================= */
 nav {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 1rem 0;
@@ -68,14 +72,13 @@ nav {
 }
 
 .nav-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: auto;
 }
-
 
 .nav-links {
     display: flex;
@@ -87,13 +90,122 @@ nav {
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
     background-color: rgba(255, 255, 255, 0.1);
     color: #9f7aea;
+}
+
+/* =========================
+   Button Styles
+========================= */
+button {
+    background: linear-gradient(135deg, #9f7aea, #6b46c1);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(159, 122, 234, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #805ad5, #553c9a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(159, 122, 234, 0.5);
+}
+
+.action-button {
+    display: block;
+    margin: 1rem auto;
+    width: fit-content;
+}
+
+.submit-button {
+    width: 100%;
+    max-width: 20vw;
+}
+
+/* =========================
+   Input & Button Visibility
+========================= */
+.hidden {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Hide input sections by default */
+#wolInputSection,
+#triviaSection {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Show WOL input when active */
+.wol-active #wolInputSection {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.wol-active #triviaSection {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Show Trivia input when active */
+.trivia-active #triviaSection {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.trivia-active #wolInputSection {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Disable inputs initially */
+input:disabled,
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* =========================
+   Input Box Styles
+========================= */
+input[type="text"] {
+    width: 100%;
+    max-width: 20vw;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #9f7aea;
+    border-radius: 6px;
+    background-color: #1a1a1a;
+    color: white;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #d6bcfa;
+    box-shadow: 0 0 10px rgba(159, 122, 234, 0.8);
 }
 
 /* Stars Background */
@@ -247,118 +359,68 @@ nav {
     color: #fff;
 }
 
-/* Dark Room Specific */
-.dark-room {
-    /* background-color: #050505; */
-    color: white;
-}
-
-interaction-panel {
-    background-color: white;
-}
-
-dark-room-content p {
-    color: white;
-
-}
-
-.tree-sprite {
-    font-family: monospace;
-    color: #4a5568;
+/* =========================
+   Dark Room Specific
+========================= */
+.dark-room-content {
     text-align: center;
-    margin: 2rem 0;
-    transition: all 0.3s ease;
+    margin-top: 2rem;
 }
 
-.tree-sprite.active {
-    color: #9f7aea;
+.wol-interaction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.interaction-panel {
-    text-align: center;
-    margin: 2rem 0;
+.answer {
+    text-shadow: 0 0 5px rgba(159, 122, 234, 0.8);
+    font-size: 3rem;
+}
+
+.tree-sprite img {
+    max-width: 300px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.tree-sprite img:hover {
+    transform: scale(1.05);
 }
 
 .scripture-display {
-    /* background-color: rgba(0, 0, 0, 0.5); */
     padding: 1rem;
     border-radius: 8px;
-    margin: 1rem 0;
-    display: none;
-}
-
-/* Moon Room Specific */
-.moon-room {
-    background-color: #1a1a2e;
-}
-
-.moon {
-    position: fixed;
-    top: 50px;
-    right: 50px;
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 50px #fff;
-    opacity: 0.8;
-}
-
-.worlds {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.world-btn {
-    padding: 1rem 2rem;
-    background-color: transparent;
-    border: 1px solid #9f7aea;
-    color: #fff;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.world-btn:hover {
-    background-color: #9f7aea;
-}
-
-/* Judgement Room Specific */
-.judgement-room {
-    background-color: #1a1a1a;
-}
-
-.final-riddle {
-    text-align: center;
-    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    margin-top: 1rem;
+    width: 50%;
     margin: 0 auto;
 }
 
-.collected-wols {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
+/* =========================
+   Judgement Room Specific
+========================= */
+
+#awakened {
+    display: none;
 }
 
-.timer {
-    font-size: 1.5rem;
-    color: #9f7aea;
-    margin: 1rem 0;
-}
-
-/* Footer */
+/* =========================
+   Footer Styles
+========================= */
 footer {
     text-align: center;
     padding: 2rem;
     background-color: rgba(0, 0, 0, 0.8);
     position: relative;
     z-index: 1;
+    margin-top: 2rem;
 }
 
-/* Responsive Styles */
+/* =========================
+   Responsive Design
+========================= */
 @media (max-width: 600px) {
 
     .nav-content,
@@ -405,4 +467,13 @@ footer {
         font-size: 2.5rem;
     }
 
+    .submit-button,
+    input[type="text"] {
+        width: 100%;
+        max-width: 90vw;
+    }
+
+    .scripture-display {
+        width: 90vw;
+    }
 }

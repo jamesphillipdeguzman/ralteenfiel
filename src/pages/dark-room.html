@@ -27,27 +27,36 @@
 
     <main class="container">
         <section class="dark-room-content">
-            <h1>The Dark Room</h1>
+            <h1 class="section-title">The Dark Room</h1>
             <div class="wol-interaction">
                 <div class="tree-sprite" id="treeSprite">
-                    <img src="/assets/images/wol1.webp" srcset="
-        /assets/images/wol1.webp 600w, 
-        /assets/images/wol1.webp 900w, 
-        /assets/images/wol2.webp 1200w
-    " sizes="(max-width: 600px) 100vw, 
-           (max-width: 900px) 50vw, 
-           300px" alt="Image of eerie tree called WOL or Words of Life" width="300" height="300">
+                    <img id="wolImage" src="/assets/images/wol2.webp"
+                        alt="Image of eerie tree called WOL or Words of Life" width="300" height="300">
 
                 </div>
+
                 <div class="interaction-panel">
-                    <p>Are you ready to seek the Words of Life?</p>
-                    <button id="askWol">Ask "Are you a WOL?"</button>
+                    <p class="question-text">Are you ready to seek the Words of Life?</p>
+                    <button id="askWOL" class="action-button">Ask "Are you a WOL?"</button>
+                    <div id="answer" class="answer"></div>
                     <div id="scriptureDisplay" class="scripture-display"></div>
-                    <input type="text" id="keywordInput" placeholder="Enter the keyword..." class="hidden">
-                    <button id="submitKeyword" class="hidden">Submit Answer</button>
+
+                    <!-- WOL Input Section -->
+                    <div id="wolInputSection" class="hidden">
+                        <p class="prompt-text">Enter the matching keyword:</p>
+                        <input type="text" id="keywordInput" placeholder="Enter the keyword...">
+                        <button id="submitKeyword" class="submit-button">Submit</button>
+                    </div>
+
+                    <!-- Trivia Section -->
+                    <div id="triviaSection" class="hidden">
+                        <p id="triviaQuestion" class="trivia-question"></p>
+                        <input type="text" id="triviaInput" placeholder="Your answer...">
+                        <button id="submitTrivia" class="submit-button">Submit</button>
+                    </div>
                 </div>
                 <div class="wol-counter">
-                    WOLs Found: <span id="wolCount">0</span>/11
+                    <p><strong>WOLs Found:</strong> <span id="wolCount">0</span>/11</p>
                 </div>
             </div>
         </section>
@@ -55,19 +64,12 @@
 
     <footer class="myfooter" id="main-footer">
         <div class="mysite">
-            Ralteen Fiel &copy;
-            <span class="currentyear"></span>
+            Ralteen Fiel &copy; <span class="currentyear"></span>
             <div class="lastmodified">
-                Last Modified:
-                <span id="lastModified"></span>
-                <!-- <a class="branding" href="https://jamesdeguzman.com/" target="_blank">
-              besys.tech&copy; -->
-                <!-- <span class="currentyear"></span> </a> -->
+                Last Modified: <span id="lastModified"></span>
             </div>
         </div>
     </footer>
-
-
 </body>
 
 </html>
