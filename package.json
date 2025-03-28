@@ -1,0 +1,40 @@
+{
+  "name": "ralteenfiel",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview",
+    "lint": "eslint \"src/js/**/*.{js,mjs}\"",
+    "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\""
+  },
+  "keywords": [
+    "MPA",
+    "dark",
+    "mystery",
+    "dream"
+  ],
+  "author": "James Phillip De Guzman",
+  "license": "ISC",
+  "description": "A dream mystery project for ralteenfiel.com",
+  "devDependencies": {
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-import": "^2.31.0",
+    "prettier": "^3.2.5",
+    "vite": "^6.2.3"
+  },
+  "browserslist": [
+    "last 3 chrome versions",
+    "last 3 safari versions",
+    "last 3 firefox versions"
+  ],
+  "dependencies": {
+    "postcss": "^8.5.1"
+  },
+  "type": "module"
+}
