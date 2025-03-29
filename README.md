@@ -14,6 +14,8 @@ To awaken Ralteen, you must uncover the **11 Words of Life (WOLs)**—hidden wit
 ## **About the Project**  
 This project is a creative exploration of **interactive storytelling** and **web development**, designed by **James Phillip De Guzman**.  
 
+https://ralteenfiel.netlify.app/
+
 ---
 
 © 2025 **Ralteen Fiel's Story** – Created by *James Phillip De Guzman*
