@@ -17,6 +17,11 @@ body {
     overflow-x: hidden;
 }
 
+h1,
+h2 {
+    font-family: 'Mystery Quest', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
