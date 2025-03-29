@@ -105,7 +105,7 @@ function winGame() {
         <p class="awakening">Ms. Ralteen Fiel has awakened from her very deep sleep!</p>
         <img id="awakened" src="/assets/images/ralteenfiel-awakened.webp"
          alt="Ms. Ralteen Fiel awakened" width="500" height="500"><br><br>
-        <a href="index.html" class="cta-button">Return Home</a>
+        <a href="../index.html" class="cta-button">Return Home</a>
         <br>
     `;
     document.querySelector("#awakened").style.display = "flex";

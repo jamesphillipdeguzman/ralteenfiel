@@ -505,7 +505,7 @@ input[type="text"]:focus {
 #finalAnswer {
     font-size: 1rem;
     text-align: left;
-    width: 80%;
+    width: 90%;
 }
 
 /* =========================
@@ -548,7 +548,7 @@ footer {
 
     }
 
-    
+   
 
     .answer-section h2 {
         text-align: center;
@@ -564,6 +564,11 @@ footer {
         height: auto;
         align-self: center;
     }
+    #finalAnswer {
+        width: 90%;
+        max-width: 90vw;
+    }
+        
 }
 
 
