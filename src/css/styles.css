@@ -283,8 +283,13 @@ input[type="text"]:focus {
 
 /* Hero Section */
 .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 4rem 0;
+    gap: 3rem;
     position: relative;
 }
 
@@ -421,6 +426,25 @@ footer {
 /* =========================
    Responsive Design
 ========================= */
+.responsive-img {
+    width: 500px;
+    height: 500px;
+    display: block;
+    max-width: 100%;
+    /* Ensures it doesn't overflow */
+    height: auto;
+    /* Maintains aspect ratio */
+}
+
+@media (max-width: 330px) {
+    .responsive-img {
+        width: 300px;
+        /* Change size when screen is 330px or smaller */
+        height: auto;
+        /* Keep aspect ratio */
+    }
+}
+
 @media (max-width: 600px) {
 
     .nav-content,
