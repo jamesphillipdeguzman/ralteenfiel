@@ -502,6 +502,12 @@ input[type="text"]:focus {
     gap: 2rem;
 }
 
+#finalAnswer {
+    font-size: 1rem;
+    text-align: left;
+    width: 80%;
+}
+
 /* =========================
    Footer Styles
 ========================= */
@@ -535,18 +541,14 @@ footer {
         /* Keep aspect ratio */
     }
 
-
     .answer-section {
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: left;
 
     }
 
-    #finalAnswer {
-        font-size: 1rem;
-        text-align: left;
-    }
+    
 
     .answer-section h2 {
         text-align: center;
@@ -554,7 +556,18 @@ footer {
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 560px) {
+    .answer-section #awakened {
+        display: flex;
+        width: 100%;
+        max-width: 90vw;
+        height: auto;
+        align-self: center;
+    }
+}
+
+
+@media (max-width: 740px) {
 
     #keywordInput {
         width: 100%;
@@ -575,9 +588,6 @@ footer {
         padding: 1rem;
         font-size: 1.2rem;
     }
-}
-
-@media (max-width: 600px) {
 
     .nav-content,
     .nav-links {
@@ -632,4 +642,17 @@ footer {
     .scripture-display {
         width: 90vw;
     }
+}
+
+@media (max-width: 885px) {
+    .nav-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
+    #finalAnswer {
+        width: 50%;
+    }
+    
 }

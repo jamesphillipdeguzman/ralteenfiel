@@ -88,9 +88,12 @@ function gameOver(message) {
 function winGame() {
     showNotification("Congratulations! You have awakened Ms. Ralteen Fiel from her eternal slumber!", "success");
 
-    document.querySelector("#awakened").style.display = "block";
+    
     document.querySelector("#timer").style.display = "none";
-    document.querySelector("#attempts").style.display = "none";
+    const attempts = document.querySelector("#attempts");
+    if (attempts) {
+        attempts.style.display = "block";
+    }
     document.querySelector("#submitAnswer").style.display = "none";
 
     document.querySelector(".judgement-room-content").innerHTML = `
@@ -100,8 +103,16 @@ function winGame() {
             I will make thee ruler over many things: enter thou into the joy of thy lord."
         </p>
         <p class="awakening">Ms. Ralteen Fiel has awakened from her very deep sleep!</p>
+        <img id="awakened" src="/assets/images/ralteenfiel-awakened.webp"
+         alt="Ms. Ralteen Fiel awakened" width="500" height="500"><br><br>
         <a href="index.html" class="cta-button">Return Home</a>
+        <br>
     `;
+    document.querySelector("#awakened").style.display = "flex";
+    document.querySelector("#awakened").style.width = "100%";
+    document.querySelector("#awakened").style.maxWidth = "90vw";
+    document.querySelector("#awakened").style.height = "auto";
+    document.querySelector("#awakened").style.alignSelf = "center";
 
     localStorage.removeItem("judgementGame"); // Clear progress after victory
 }
