@@ -24,6 +24,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Function to show notifications instead of alerts
+function showNotification(message, type = "info", duration = 3000) {
+    const notification = document.getElementById("notification");
+    if (!notification) return;
+
+    notification.innerText = message;
+    notification.className = `notification ${type}`;
+    notification.style.display = "block";
+
+    setTimeout(() => {
+        notification.style.display = "none";
+        notification.innerText = "";
+    }, duration);
+}
+
 function checkWorld(selectedWorld) {
     if (selectedWorld.toLowerCase() === "celestial") {
         winGame();
@@ -35,7 +50,7 @@ function checkWorld(selectedWorld) {
         if (gameState.attempts <= 0) {
             gameOver();
         } else {
-            alert("Incorrect. Try again!");
+            showNotification("Incorrect. Try again!", "error");
         }
     }
 }
@@ -45,13 +60,17 @@ function updateUI() {
 }
 
 function gameOver() {
-    alert("You have run out of attempts. Return to the Dark Room to try again.");
+    showNotification("You have run out of attempts. Returning to the Dark Room...", "error");
     localStorage.removeItem("worldSelectionGame");
-    window.location.href = "dark-room.html";
+    setTimeout(() => {
+        window.location.href = "dark-room.html";
+    }, 2000);
 }
 
 function winGame() {
-    alert("Correct! The celestial kingdom awaits. Proceed to the Judgement Room.");
+    showNotification("Correct! The celestial kingdom awaits. Proceeding to the Judgement Room...", "success");
     localStorage.removeItem("worldSelectionGame");
-    window.location.href = "judgement-room.html";
+    setTimeout(() => {
+        window.location.href = "judgement-room.html";
+    }, 2000);
 }

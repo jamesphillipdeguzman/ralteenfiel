@@ -25,6 +25,14 @@ body {
 
 /* NAVIGATION Styles */
 
+#text-link {
+    color: #9f7aea;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(159, 122, 234, 0.5);
+}
+
 #menu {
     background: none;
     border: none;
@@ -98,6 +106,8 @@ nav {
     background-color: rgba(255, 255, 255, 0.1);
     color: #9f7aea;
 }
+
+
 
 /* =========================
    Button Styles
@@ -364,6 +374,20 @@ input[type="text"]:focus {
     color: #fff;
 }
 
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+.about ul {
+
+    list-style: none;
+}
+
 /* =========================
    Dark Room Specific
 ========================= */
@@ -371,6 +395,47 @@ input[type="text"]:focus {
     text-align: center;
     margin-top: 2rem;
 }
+
+.prompt-text {
+    margin-top: 2rem;
+}
+
+#keywordInput {
+    width: 100%;
+    max-width: 20vw;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #9f7aea;
+    border-radius: 6px;
+    background-color: #1a1a1a;
+    color: white;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    /* Hidden by default */
+    z-index: 1000;
+}
+
+.notification.success {
+    background-color: green;
+}
+
+.notification.error {
+    background-color: red;
+}
+
 
 .wol-interaction {
     display: flex;
@@ -404,11 +469,32 @@ input[type="text"]:focus {
 }
 
 /* =========================
+   Moon Room Specific
+========================= */
+
+.worlds {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 2rem;
+    gap: 2rem;
+}
+
+/* =========================
    Judgement Room Specific
 ========================= */
 
 #awakened {
     display: none;
+}
+
+.answer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    margin-top: 2rem;
+    gap: 2rem;
 }
 
 /* =========================
@@ -442,6 +528,47 @@ footer {
         /* Change size when screen is 330px or smaller */
         height: auto;
         /* Keep aspect ratio */
+    }
+
+
+    .answer-section {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    #finalAnswer {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .answer-section h2 {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    #keywordInput {
+        width: 100%;
+        max-width: 90vw;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .worlds {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .world-btn {
+        width: 100%;
+        max-width: 90vw;
+        padding: 1rem;
+        font-size: 1.2rem;
     }
 }
 

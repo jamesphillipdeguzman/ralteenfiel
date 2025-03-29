@@ -1,3 +1,5 @@
+import { loadHeaderAndFooter } from "./utils.mjs";
+
 // Utility functions for date formatting and user identification
 const DateUtils = {
     getCurrentYear() {
@@ -62,16 +64,28 @@ const UI = {
                 navigationBtn.classList.toggle("open");
             });
         }
+    },
+
+    setActiveNavLink() {
+        const navLinks = document.querySelectorAll(".nav-links a");
+        const currentPath = window.location.pathname;
+
+        navLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPath) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
     }
 };
 
 // Initialize the application
 document.addEventListener("DOMContentLoaded", () => {
-    // Initialize UI components
+    loadHeaderAndFooter();
     UI.setupHamburgerMenu();
     UI.updateCurrentYear();
     UI.updateLastModified();
-
-    // Store user access information
+    UI.setActiveNavLink(); // Set the active navigation link
     UserUtils.storeAccessInfo();
 });

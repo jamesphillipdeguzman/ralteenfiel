@@ -7,56 +7,35 @@
     <title>Moon Room - Ralteen Fiel's Story</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="../assets/icons/favicon/favicon.ico" type="image/x-icon">
-    <script type="module" src="../js/base.js"></script>
+    <script type="module" src="/js/utils.mjs"></script>
     <script type="module" src="../js/moon-room.js" defer></script>
 </head>
+<div class="wrapper">
+    <header id="header-container"></header>
 
-<body class="moon-room">
-    <div class="stars"></div>
-    <div class="moon"></div>
-    <nav>
-        <div class="nav-content">
-            <button id="menu" aria-label="menu"></button>
+    <body class="moon-room">
+        <div class="stars"></div>
 
-            <h1><span class="highlight">Ralteen</span> <span class="highlight2">Fiel</span></h1>
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="../pages/dark-room.html">Dark Room</a>
-                <a href="../pages/moon-room.html" class="active">Moon Room</a>
-                <a href="../pages/judgement-room.html">Judgement Room</a>
-            </div>
-        </div>
-    </nav>
 
-    <main class="container">
-        <section class="moon-room-content">
-            <h1>The Moon Room</h1>
-            <div class="riddle-section">
-                <p class="riddle">"Seek and ye shall find, knock and it shall be opened unto you."</p>
-                <div class="worlds">
-                    <button class="world-btn" data-world="telestial">Telestial</button>
-                    <button class="world-btn" data-world="terrestrial">Terrestrial</button>
-                    <button class="world-btn" data-world="celestial">Celestial</button>
+        <main class="container">
+            <section class="moon-room-content">
+                <h1>The Moon Room</h1>
+                <div class="riddle-section">
+                    <p class="riddle">"Seek and ye shall find, knock and it shall be opened unto you."</p>
+                    <div class="worlds">
+                        <button class="world-btn" data-world="telestial">Telestial</button>
+                        <button class="world-btn" data-world="terrestrial">Terrestrial</button>
+                        <button class="world-btn" data-world="celestial">Celestial</button>
+                    </div>
+
+                    <div id="notification"></div>
+                    <p id="attempts" class="attempts">Attempts remaining: 2</p>
                 </div>
-                <p id="attempts" class="attempts">Attempts remaining: 2</p>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <footer class="myfooter" id="main-footer">
-        <div class="mysite">
-            Ralteen Fiel &copy;
-            <span class="currentyear"></span>
-            <div class="lastmodified">
-                Last Modified:
-                <span id="lastModified"></span>
-                <!-- <a class="branding" href="https://jamesdeguzman.com/" target="_blank">
-              besys.tech&copy; -->
-                <!-- <span class="currentyear"></span> </a> -->
-            </div>
-        </div>
-    </footer>
-
+        <footer class="myfooter" id="footer-container"></footer>
+</div>
 
 </body>
 

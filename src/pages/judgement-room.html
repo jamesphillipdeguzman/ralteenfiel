@@ -7,65 +7,45 @@
     <title>Judgement Room - Ralteen Fiel's Story</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="../assets/icons/favicon/favicon.ico" type="image/x-icon">
-    <script type="module" src="../js/base.js"></script>
+    <script type="module" src="/js/utils.mjs"></script>
     <script type="module" src="../js/judgement-room.js" defer></script>
 </head>
 
-<body class="judgement-room">
-    <div class="stars"></div>
-    <nav>
-        <div class="nav-content">
-            <h1><span class="highlight">Ralteen</span> <span class="highlight2">Fiel</span></h1>
-            <button id="menu" aria-label="menu"></button>
+<div class="wrapper">
+    <header id="header-container"></header>
 
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="../pages/dark-room.html">Dark Room</a>
-                <a href="../pages/moon-room.html">Moon Room</a>
-                <a href="../pages/judgement-room.html" class="active">Judgement Room</a>
-            </div>
-        </div>
-    </nav>
+    <body class="judgement-room">
+        <div class="stars"></div>
 
-    <main class="container">
-        <section class="judgement-room-content">
-            <h1>The Judgement Room</h1>
-            <div class="final-riddle">
-                <p class="riddle-text">"What is it that you seek which perish not, and yet is infinite?"</p>
-                <div class="collected-wols" id="collectedWols">
-                    <!-- WOLs will be displayed here -->
+
+        <main class="container">
+            <section class="judgement-room-content">
+                <h1>The Judgement Room</h1>
+                <div class="final-riddle">
+                    <p class="riddle-text">"What is it that you seek which perish not, and yet is infinite?"</p>
+                    <div class="collected-wols" id="collectedWols">
+                        <!-- WOLs will be displayed here -->
+                    </div>
+                    <div id="notification"></div>
+                    <div class="answer-section">
+                        <input type="text" id="finalAnswer" placeholder="Enter your answer...">
+                        <button id="submitAnswer">Submit</button>
+                        <p id="attemptsLeft">Attempts remaining: 3</p>
+                        <div id="timer" class="timer">Time remaining: 3:00</div>
+                    </div>
                 </div>
-                <div class="answer-section">
-                    <input type="text" id="finalAnswer" placeholder="Enter your answer...">
-                    <button id="submitAnswer">Submit</button>
-                    <p id="attemptsLeft">Attempts remaining: 3</p>
-                    <div id="timer" class="timer">Time remaining: 3:00</div>
-                </div>
-            </div>
-        </section>
-        <img id="awakened" src="/assets/images/ralteenfiel-awakened-500w.webp" srcset="
+            </section>
+            <img id="awakened" src="/assets/images/ralteenfiel-awakened-500w.webp" srcset="
         /assets/images/ralteenfiel-awakened.webp 600w,
         /assets/images/ralteenfiel-awakened.webp 1200w" sizes="(max-width: 480px) 300px, 
             (max-width: 768px) 500px, 
             (max-width: 1200px) 800px, 
             1200px" alt="Ms. Ralteen Fiel awakened" width="500" height="500">
 
-    </main>
+        </main>
 
-    <footer class="myfooter" id="main-footer">
-        <div class="mysite">
-            Ralteen Fiel &copy;
-            <span class="currentyear"></span>
-            <div class="lastmodified">
-                Last Modified:
-                <span id="lastModified"></span>
-                <!-- <a class="branding" href="https://jamesdeguzman.com/" target="_blank">
-              besys.tech&copy; -->
-                <!-- <span class="currentyear"></span> </a> -->
-            </div>
-        </div>
-    </footer>
-
+        <footer class="myfooter" id="footer-container"></footer>
+</div>
 
 </body>
 

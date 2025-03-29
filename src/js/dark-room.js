@@ -11,7 +11,7 @@ async function loadScriptures() {
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         scriptures = await response.json();
     } catch (error) {
-        console.error("Error loading JSON:", error);
+        // console.log("Error loading JSON:", error);
         document.getElementById("scriptureDisplay").innerText = "Failed to load scriptures.";
     }
 }
@@ -53,20 +53,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 function updateWOLImage(isWOL) {
     const wolImage = document.querySelector("#treeSprite img");
     if (!wolImage) {
-        console.error("Error: wolImage element not found!");
+        // console.log("Error: wolImage element not found!");
         return;
     }
 
     // Use absolute paths for public assets
     wolImage.src = isWOL ? "/assets/images/wol1.webp" : "/assets/images/wol2.webp";
 
-    console.log(`Image updated to: ${wolImage.src}`);
+    // console.log(`Image updated to: ${wolImage.src}`);
 }
 
 
 
 function askTree() {
-    resetInputs();
+    document.getElementById("scriptureDisplay").innerText = "";
     const isWOL = Math.random() < 0.6;
     updateWOLImage(isWOL);
 
@@ -81,18 +81,32 @@ function askTree() {
         showTriviaInput();
         askTrivia();
     }
+
 }
 
 
 function provideScripture() {
     if (collectedWOLs >= totalWOLs) {
-        document.getElementById("scriptureDisplay").innerText = "Congratulations! You've collected all WOLs. Proceed to the next room.";
+        document.getElementById("scriptureDisplay").innerText =
+            "Congratulations! You've collected all WOLs. Proceed to the next room.";
+
+        const button = document.createElement("a");
+        button.href = "/pages/moon-room.html"; // Adjust the path if necessary
+        button.classList.add("cta-button"); // Add styling class if needed
+        button.innerText = "Go to Moon Room";
+
+        // Append the button after the message
+        document.getElementById("scriptureDisplay").appendChild(button);
+
+        document.getElementById("wol-ctr").innerText = "All WOLs Collected!";
+        document.getElementById("wolInputSection").classList.remove("wol-active", "show");
+
         return;
     }
 
     currentScripture = loadRandomScripture();
 
-    console.log("Selected scripture:", currentScripture); // Debugging output
+    // console.log("Selected scripture:", currentScripture); // Debugging output
 
     if (currentScripture) {
         document.getElementById("scriptureDisplay").innerHTML = `<strong>${currentScripture.verse}:</strong> ${currentScripture.passage}`;
@@ -101,14 +115,28 @@ function provideScripture() {
     }
 }
 
+// Function to display notifications in the HTML
+function showNotification(message, type = "info", duration = 3000) {
+    const notification = document.getElementById("notification");
+    if (!notification) return;
 
+    notification.innerText = message;
+    notification.className = `notification ${type}`;
+    notification.style.display = "block";
+
+    setTimeout(() => {
+        notification.style.display = "none";
+        notification.innerText = "";
+    }, duration);
+}
+
+// Update WOL Answer Checking (No Removal, Only Added showNotification)
 function checkWOLAnswer(answer) {
     const userGuess = document.getElementById("keywordInput").value.trim().toUpperCase();
     if (!currentScripture || usedWOLs.has(currentScripture.wol)) return;
 
     document.getElementById("answer").style.display = "none";
 
-    // Show scriptureDisplay if answer is "YES", hide if "NO"
     if (answer === "NO") {
         document.getElementById("scriptureDisplay").style.display = "none";
         return;
@@ -124,27 +152,29 @@ function checkWOLAnswer(answer) {
         document.getElementById("wolCount").innerText = collectedWOLs;
         document.getElementById("scriptureDisplay").innerText = `Correct! You have collected WOL ${collectedWOLs}.`;
 
-        // Check if all 11 WOLs have been collected
+        showNotification(`Correct! You have collected WOL ${collectedWOLs}.`, "success");
+
         if (collectedWOLs >= totalWOLs) {
             setTimeout(() => {
-                alert("Congratulations! You've collected all 11 WOLs and completed the game!");
+                showNotification("Congratulations! You've collected all 11 WOLs and completed the game!", "success");
                 window.location.href = "moon-room.html";
             }, 1000);
         }
     } else {
         document.getElementById("scriptureDisplay").innerText = `Incorrect. The correct answer was: ${currentScripture.wol}. Try again.`;
+        showNotification(`Incorrect. The correct answer was: ${currentScripture.wol}. Try again.`, "error");
     }
 
     resetInputs();
 }
-
-
 
 function askTrivia() {
     currentTrivia = triviaQuestions[Math.floor(Math.random() * triviaQuestions.length)];
     document.getElementById("triviaQuestion").innerText = currentTrivia.question;
 }
 
+
+// Update Trivia Answer Checking (No Removal, Only Added showNotification)
 function checkTriviaAnswer() {
     const userAnswer = document.getElementById("triviaInput").value.trim().toLowerCase();
     if (!currentTrivia) return;
@@ -154,16 +184,22 @@ function checkTriviaAnswer() {
         document.getElementById("scriptureDisplay").style.display = "none";
         document.getElementById("answer").style.display = "none";
 
+        showNotification("Correct! Well done!", "success");
         resetInputs();
     } else {
         document.getElementById("answer").style.display = "none";
-        if (confirm(`Incorrect. The correct answer was: ${currentTrivia.answer}. Try again?`)) {
+
+        showNotification(`Incorrect. The correct answer was: ${currentTrivia.answer}.`, "error");
+
+        setTimeout(() => {
             askTrivia();
-        } else {
-            resetGame();
-        }
+        }, 2000);
     }
 }
+
+
+
+
 
 
 function resetGame() {
@@ -186,7 +222,7 @@ function showTriviaInput() {
 }
 
 function resetInputs() {
-    document.getElementById("scriptureDisplay").innerText = "";
+
     document.getElementById("answer").style.display = "none";
     document.getElementById("scriptureDisplay").style.display = "block";
     document.getElementById("wolInputSection").classList.remove("wol-active", "show");

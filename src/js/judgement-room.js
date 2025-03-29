@@ -22,6 +22,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("submitAnswer").addEventListener("click", checkAnswer);
 });
 
+// Function to show notifications instead of alerts
+function showNotification(message, type = "info", duration = 3000) {
+    const notification = document.getElementById("notification");
+    if (!notification) return;
+
+    notification.innerText = message;
+    notification.className = `notification ${type}`;
+    notification.style.display = "block";
+
+    setTimeout(() => {
+        notification.style.display = "none";
+        notification.innerText = "";
+    }, duration);
+}
+
 function startTimer() {
     const timerElement = document.getElementById("timer");
 
@@ -53,7 +68,7 @@ function checkAnswer() {
         if (gameState.attempts <= 0) {
             gameOver("You have run out of attempts. Ms. Ralteen Fiel remains in her eternal slumber.");
         } else {
-            alert("Incorrect answer. Try again!");
+            showNotification("Incorrect answer. Try again!", "error");
         }
     }
 }
@@ -63,13 +78,16 @@ function updateUI() {
 }
 
 function gameOver(message) {
-    alert(message);
+    showNotification(message, "error");
     localStorage.removeItem("judgementGame");
-    window.location.href = "../index.html";
+    setTimeout(() => {
+        window.location.href = "../index.html";
+    }, 2000);
 }
 
 function winGame() {
-    alert("Congratulations! You have awakened Ms. Ralteen Fiel from her eternal slumber!");
+    showNotification("Congratulations! You have awakened Ms. Ralteen Fiel from her eternal slumber!", "success");
+
     document.querySelector("#awakened").style.display = "block";
     document.querySelector("#timer").style.display = "none";
     document.querySelector("#attempts").style.display = "none";

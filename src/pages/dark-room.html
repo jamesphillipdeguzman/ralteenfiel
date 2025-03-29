@@ -6,71 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dark Room - Ralteen Fiel's Story</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <script type="module" src="../js/base.js"></script>
     <link rel="icon" href="../assets/icons/favicon/favicon.ico" type="image/x-icon">
+    <script type="module" src="/js/utils.mjs"></script>
     <script type="module" src="../js/dark-room.js" defer></script>
 </head>
 
-<body class="dark-room">
-    <div class="stars"></div>
-    <nav>
-        <div class="nav-content">
-            <button id="menu" aria-label="menu"></button>
-            <h1><span class="highlight">Ralteen</span> <span class="highlight2">Fiel</span></h1>
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="../pages/dark-room.html" class="active">Dark Room</a>
-                <a href="../pages/moon-room.html">Moon Room</a>
-                <a href="../pages/judgement-room.html">Judgement Room</a>
-            </div>
-        </div>
-    </nav>
+<div class="wrapper">
+    <header id="header-container"></header>
 
-    <main class="container">
-        <section class="dark-room-content">
-            <h1 class="section-title">The Dark Room</h1>
-            <div class="wol-interaction">
-                <div class="tree-sprite" id="treeSprite">
-                    <img id="wolImage" src="/assets/images/wol2.webp"
-                        alt="Image of eerie tree called WOL or Words of Life" width="300" height="300">
+    <body class="dark-room">
+        <div class="stars"></div>
 
-                </div>
+        <main class="container">
+            <section class="dark-room-content">
+                <h1 class="section-title">The Dark Room</h1>
+                <div class="wol-interaction">
+                    <div class="tree-sprite" id="treeSprite">
+                        <img id="wolImage" src="/assets/images/wol2.webp"
+                            alt="Image of eerie tree called WOL or Words of Life" width="300" height="300">
 
-                <div class="interaction-panel">
-                    <p class="question-text">Are you ready to seek the Words of Life?</p>
-                    <button id="askWOL" class="action-button">Ask "Are you a WOL?"</button>
-                    <div id="answer" class="answer"></div>
-                    <div id="scriptureDisplay" class="scripture-display"></div>
-
-                    <!-- WOL Input Section -->
-                    <div id="wolInputSection" class="hidden">
-                        <p class="prompt-text">Enter the matching keyword:</p>
-                        <input type="text" id="keywordInput" placeholder="Enter the keyword...">
-                        <button id="submitKeyword" class="submit-button">Submit</button>
                     </div>
 
-                    <!-- Trivia Section -->
-                    <div id="triviaSection" class="hidden">
-                        <p id="triviaQuestion" class="trivia-question"></p>
-                        <input type="text" id="triviaInput" placeholder="Your answer...">
-                        <button id="submitTrivia" class="submit-button">Submit</button>
+                    <div class="interaction-panel">
+                        <p class="question-text">Are you ready to seek the Words of Life?</p>
+                        <button id="askWOL" class="action-button">Ask "Are you a WOL?"</button>
+                        <div id="answer" class="answer"></div>
+                        <div id="scriptureDisplay" class="scripture-display"></div>
+
+                        <!-- WOL Input Section -->
+                        <div id="wolInputSection" class="hidden">
+                            <p class="prompt-text">Enter the matching keyword:</p>
+                            <input type="text" id="keywordInput" placeholder="Enter the keyword...">
+                            <button id="submitKeyword" class="submit-button">Submit</button>
+                        </div>
+
+                        <!-- Trivia Section -->
+                        <div id="triviaSection" class="hidden">
+                            <p id="triviaQuestion" class="trivia-question"></p>
+                            <input type="text" id="triviaInput" placeholder="Your answer...">
+                            <button id="submitTrivia" class="submit-button">Submit</button>
+                        </div>
+                    </div>
+                    <div class="wol-counter">
+                        <p id="wol-ctr"><strong>WOLs Found:</strong> <span id="wolCount">0</span>/11</p>
                     </div>
                 </div>
-                <div class="wol-counter">
-                    <p><strong>WOLs Found:</strong> <span id="wolCount">0</span>/11</p>
-                </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <footer class="myfooter" id="main-footer">
-        <div class="mysite">
-            Ralteen Fiel &copy; <span class="currentyear"></span>
-            <div class="lastmodified">
-                Last Modified: <span id="lastModified"></span>
-            </div>
-        </div>
-    </footer>
+        <footer class="myfooter" id="footer-container"></footer>
+</div>
+
 </body>
 
 </html>

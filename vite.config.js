@@ -12,6 +12,7 @@ export default defineConfig({
         darkroom: resolve(__dirname, "src/pages/dark-room.html"),
         judgementroom: resolve(__dirname, "src/pages/judgement-room.html"),
         moonroom: resolve(__dirname, "src/pages/moon-room.html"),
+        about: resolve(__dirname, "src/pages/about.html"),
 
       },
     },
